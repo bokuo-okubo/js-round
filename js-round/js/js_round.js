@@ -3,7 +3,6 @@ var pathArr = [];
 var csvArr = [];
 var cnt = 0;
 
-
 /*
 38 上
 40 下
@@ -15,14 +14,16 @@ window.document.onkeydown = function(){
     k = event.keyCode;
     var i=0;
 
-    if(type == "windowMove"){
-      if(k == 38){  ++i;}
-      if(k == 40){  --i;}
+    if(pathArr.length > 0){
+      if(k == 38){  --i;}
+      if(k == 40){  ++i;}
       if(k == 37){  }
       if(k == 39){  }
       else kNum = null
-    }
 
+    srcHdl(pathArr,i);
+
+  }
 }
 
 //init
@@ -42,20 +43,16 @@ function btnHdl(){
   $.each(csvArr, function(i,val){
     $.each(val, function(n,_val){ pathArr.push(_val) }) 
   })
-  
-  return pathArr;
 }
 
-function srcHdl(_pathArr){
-    var n = arrow(0,"windowMove");
-    var path = _pathArr[n]
-    draw(path);
+function srcHdl(_pathArr,n){
+    var path = _pathArr[n];
+    var frame =document.getElementById("frame");
+    frame.src=path;
+
 }
 
-function draw(_path){
-  var frame = document.getElementById('frame');
-  frame.src = _path;
-}
+
 
 function arrow(i,type){
   window.document.onkeydown = function(){
