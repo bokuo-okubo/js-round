@@ -12,16 +12,28 @@ var cnt = 0;
 
 window.document.onkeydown = function(){
     k = event.keyCode;
-    var i=0;
+    
 
     if(pathArr.length > 0){
-      if(k == 38){  --i;}
-      if(k == 40){  ++i;}
-      if(k == 37){  }
-      if(k == 39){  }
-      else kNum = null
-
-    srcHdl(pathArr,i);
+      if(k == 38){  
+      }
+      if(k == 40){  
+      }
+      if(k == 37){  i--;
+      console.log("左");}
+      if(k == 39){ i++;
+            console.log("右"); }
+      
+	
+	var i=function(){
+    	var inner = 0;
+    	function func(){inner++;};
+		console.log("inner:");
+    	console.log(inner);
+    	return inner;
+    }
+	
+    srcHdl(pathArr,3);
 
   }
 }
@@ -43,13 +55,17 @@ function btnHdl(){
   $.each(csvArr, function(i,val){
     $.each(val, function(n,_val){ pathArr.push(_val) }) 
   })
+  srcHdl(pathArr,0);
 }
 
 function srcHdl(_pathArr,n){
     var path = _pathArr[n];
+    
     var frame =document.getElementById("frame");
+    console.log(path);
     frame.src=path;
 
+	
 }
 
 
