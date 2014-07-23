@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="./js/jquery.js"></script>
+	<script type="text/javascript" src="./js/js_round.js"></script>
+	<script type="text/javascript" src="./js/class.js"></script>
+</head>
+<body>
+	<div class="title">巡回したいソースの配列をCSV形式で入れて下さい</div>
+
+	<div class="formwrap">
+		
+		<textarea id="tArea" name="pathArr" rows="4" cols="40">巡回したいソースの配列をCSV形式で入れて下さい
+		</textarea>
+	</div>
+	<div id="button">
+	<button name="go" onclick="btnHdl()" >Go</button>	
+	</div>
+	
+
+	<iframe id="frame" width="1000" height="2000">
+	</iframe>
+	
+
+	<script>
+
+window.onload = init();
+
+/*function(){
+	var csv ="あいう,えおあい\n" +"フェー";
+	var csvArr =parseSV(csv);
+	$.each(csvArr, function(i,val){console.log("[",i,"]の値は",val)} )
+}*/
+
+	</script>
+
+</body>
+</html>
