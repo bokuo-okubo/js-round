@@ -28,6 +28,8 @@ window.document.onkeydown = function(){
             console.log("b押された",i);
       }
     srcHdl(pathArr,i);
+    a = i + 1 ;
+    document.getElementById("log").innerHTML = a + ":<br>" + pathArr[i];
 
   }
 }
@@ -40,6 +42,7 @@ function btnHdl(){
 
   //クリックされるごとに配列クリア
   pathArr.length=0;
+  i = 0;
 
   //CSV(str) => tArea
   var pathStr = document.getElementById("tArea").value;
@@ -47,19 +50,20 @@ function btnHdl(){
   $.each(csvArr, function(i,val){
     $.each(val, function(n,_val){ 
       pathArr.push(_val) 
-      console.log(_val,":",pathArr[pathArr.length-1]);
+      //console.log(_val,":",pathArr[pathArr.length-1]);
     }) 
   })
   srcHdl(pathArr,0);
+  document.getElementById("log").innerHTML = 1 + ":<br>" + pathArr[i];
 }
 
 
 
 function srcHdl(_pathArr,n){
     var path = _pathArr[n];
-    
+      
+
     var frame =document.getElementById("frame");
-    console.log(path);
     frame.src=path;
 
 	
