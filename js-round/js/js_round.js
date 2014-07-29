@@ -20,22 +20,20 @@ window.document.onkeydown = function(){
 
     if(pathArr.length > 0){
       if(k == 78){  
-      i--;
-      console.log("n押された");
+      i++;
+      console.log("n押された",i);
       }
       if(k == 66){ 
-      i++; 
-            console.log("b押された");
+      i--; 
+            console.log("b押された",i);
       }
     srcHdl(pathArr,i);
 
   }
 }
 
-//init
 function init(){
 
-  
 }
 
 function btnHdl(){
@@ -47,10 +45,15 @@ function btnHdl(){
   var pathStr = document.getElementById("tArea").value;
   var csvArr = parseSV(pathStr);
   $.each(csvArr, function(i,val){
-    $.each(val, function(n,_val){ pathArr.push(_val) }) 
+    $.each(val, function(n,_val){ 
+      pathArr.push(_val) 
+      console.log(_val,":",pathArr[pathArr.length-1]);
+    }) 
   })
   srcHdl(pathArr,0);
 }
+
+
 
 function srcHdl(_pathArr,n){
     var path = _pathArr[n];
@@ -62,22 +65,6 @@ function srcHdl(_pathArr,n){
 	
 }
 
-
-
-function arrow(i,type){
-  window.document.onkeydown = function(){
-    k = event.keyCode;
-
-    if(type == "windowMove"){
-      if(k == 38){  ++i;}
-      if(k == 40){  --i;}
-      if(k == 37){  }
-      if(k == 39){  }
-      else kNum = null
-    }
-  return i;
-  }
-}
 
 
 
