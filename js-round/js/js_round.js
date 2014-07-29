@@ -2,12 +2,16 @@ var pathStr = "str";
 var pathArr = [];
 var csvArr = [];
 var cnt = 0;
+var i= 0;
 
 /*
 38 上
 40 下
 37 左
 38 右
+
+78 n
+66 b
 */
 
 window.document.onkeydown = function(){
@@ -15,25 +19,15 @@ window.document.onkeydown = function(){
     
 
     if(pathArr.length > 0){
-      if(k == 38){  
+      if(k == 78){  
+      i--;
+      console.log("n押された");
       }
-      if(k == 40){  
+      if(k == 66){ 
+      i++; 
+            console.log("b押された");
       }
-      if(k == 37){  i--;
-      console.log("左");}
-      if(k == 39){ i++;
-            console.log("右"); }
-      
-	
-	var i=function(){
-    	var inner = 0;
-    	function func(){inner++;};
-		console.log("inner:");
-    	console.log(inner);
-    	return inner;
-    }
-	
-    srcHdl(pathArr,3);
+    srcHdl(pathArr,i);
 
   }
 }
