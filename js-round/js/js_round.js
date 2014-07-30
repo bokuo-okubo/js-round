@@ -57,21 +57,11 @@ function btnHdl(){
   document.getElementById("log").innerHTML = 1 + ":<br>" + pathArr[i];
 }
 
-
-
 function srcHdl(_pathArr,n){
     var path = _pathArr[n];
-      
-
     var frame =document.getElementById("frame");
     frame.src=path;
-
-	
 }
-
-
-
-
 
 function parseSV(str, delimiter){
   if(!delimiter) delimiter = ","
